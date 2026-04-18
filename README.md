@@ -1,30 +1,42 @@
-# batman-blink-board
-# Batman LED Chaser 🦇 (My First Custom PCB)
+Batman LED Chaser - Custom Hardware Build
 
-Yoo so this is my first ever custom hardware project. Im usually a software guy (MERN stack, mostly React stuff like when I built NextWatch) so jumpin into raw hardware was wild. But I finally figured it out. 
+Project Description
+For this project, I stepped away from my usual full-stack software development to build a custom piece of physical hardware. This is a classic "Knight Rider" style LED chaser circuit, but instead of using a standard rectangular circuit board, I designed a custom PCB shaped exactly like the Batman logo. The brains of the board use an NE555 timer chip to create a steady electrical heartbeat, and a CD4017 decade counter to distribute that pulse across 10 LEDs spread out along the bat wings.
 
-Basically this is a "Knight Rider" style LED chaser, but instead of a boring square board, the LEDs run across a custom Batman shaped PCB. 
+Steps Taken to Build It
 
-## How it works (The Brains)
-I learned that hardware is basically just full stack dev but with electricity. 
-* **The NE555P Timer:** This is the heartbeat. It just pulses power on and off based on the resistors and capacitors attached to it. Its like the setInterval function in JS.
-* **The CD4017 Decade Counter:** This chip listens to the 555 timer's heartbeat. Everytime it hears a beat, it shifts power to the next LED in the sequence (0 through 9). 
+Designing the Logic: I started in EasyEDA by laying out the schematic. I wired the NE555 timer, the CD4017 counter, and all the passive components together to make sure the backend logic was sound before worrying about the physical layout.
 
-## The Tools I used
-Everything was designed in **EasyEDA** (standard version, runnin right in the browser). 
+The Custom Outline: For the physical board layout, I imported a solid black Batman logo silhouette to use as a background stencil. I then used the board outline tool to manually trace the shape, creating a custom cut-path for the factory.
 
-**Phase 1: The Schematic (The Backend)**
-First I had to draw the schematic. This is purely theoretical—like mapping out API routes or database schemas. Just putting down the symbols for the 555, the 4017, the 10 LEDs, and wiring them together so the logic works. Tbh wiring the manual traces in the schematic was the most annoying part lol cus u have to make sure every wire connects to the right pin or it shorts out.
+Component Placement: I arranged the two main IC chips in the center of the bat, and distributed the 10 LEDs symmetrically across the left and right wings.
 
-**Phase 2: The PCB Layout (The Frontend)**
-Once the logic was done, I moved to the actual physical PCB design. 
-I deleted the default boring square board outline. Then I found a solid black Batman logo PNG on google, imported it as a `Document` layer in EasyEDA to use as a stencil, and literally traced it using the `BoardOutline` tool to make a custom cut-path for the factory router. 
+Copper Routing: Once the components were placed inside the custom shape, I ran the auto-router to generate the physical top and bottom copper traces, connecting everything together without shorting out.
 
-Dragged all the LEDs onto the bat wings, and then used the Auto-Router tool to let the computer figure out how to lay down all the physical copper traces without them crossing.
+Manufacturing: I finalized the design files and sent them directly to JLCPCB for physical fabrication.
 
-## Manufacturing
-I sent the final files directly to **JLCPCB**. They are the factory that actually bakes the fiberglass and cuts the Batman shape out. Used a new user coupon so a batch of 5 boards was super cheap. 
+Process Pictures
+<img width="844" height="593" alt="Screen Shot 2026-04-18 at 16 44 00" src="https://github.com/user-attachments/assets/dd2665b0-0358-43bb-9ea0-890422db921a" />
 
-Just waiting on the mail now so I can actually solder the physical chips onto the board. Ill probably take some sick macro shots of the finished soldering with the 6D Mark I when it gets here. 
 
-If ur trying to learn hardware, def recommend starting with a 555 timer circuit like this. Its a classic for a reason!
+Bill of Materials (Parts List)
+
+1x NE555P Timer IC
+
+1x CD4017BCN Decade Counter IC
+
+10x Standard Through-Hole LEDs
+
+1x 1k Ohm Resistor
+
+1x 470 Ohm Resistor
+
+1x 50k Ohm Potentiometer (to dial in the speed of the LEDs)
+
+1x 1uF Electrolytic Capacitor
+
+1x 10nF Ceramic Capacitor
+
+Standard Male Header Pins (for Power, Ground, and a Clock debug pin)
+
+1x Custom Batman Printed Circuit Board
