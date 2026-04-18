@@ -1,42 +1,41 @@
-Batman LED Chaser - Custom Hardware Build
+Batman LED Chaser 🦇
+A custom-designed, Batman-shaped PCB that sequences 10 LEDs in a "Knight Rider" style light chase.
 
 Project Description
-For this project, I stepped away from my usual full-stack software development to build a custom piece of physical hardware. This is a classic "Knight Rider" style LED chaser circuit, but instead of using a standard rectangular circuit board, I designed a custom PCB shaped exactly like the Batman logo. The brains of the board use an NE555 timer chip to create a steady electrical heartbeat, and a CD4017 decade counter to distribute that pulse across 10 LEDs spread out along the bat wings.
+This project was a deep dive into custom hardware design. Using an NE555 Timer as a clock and a CD4017 Decade Counter as the sequencer, I designed a schematic to handle the logic and then a custom PCB layout shaped like the Batman logo to house the physical components.
 
-Steps Taken to Build It
+Steps to Reproduce
+Schematic Design: Mapped out the electrical logic in EasyEDA, wiring the timer, counter, LEDs, and passive components.
 
-Designing the Logic: I started in EasyEDA by laying out the schematic. I wired the NE555 timer, the CD4017 counter, and all the passive components together to make sure the backend logic was sound before worrying about the physical layout.
+PCB Layout: Imported a Batman logo silhouette as a reference stencil, traced the BoardOutline to create the custom shape, and arranged the components.
 
-The Custom Outline: For the physical board layout, I imported a solid black Batman logo silhouette to use as a background stencil. I then used the board outline tool to manually trace the shape, creating a custom cut-path for the factory.
+Routing: Used the Auto-Router to calculate and place the physical copper traces between components.
 
-Component Placement: I arranged the two main IC chips in the center of the bat, and distributed the 10 LEDs symmetrically across the left and right wings.
+Manufacturing: Exported the Gerber files and ordered the boards through JLCPCB.
 
-Copper Routing: Once the components were placed inside the custom shape, I ran the auto-router to generate the physical top and bottom copper traces, connecting everything together without shorting out.
+Bill of Materials (LCSC Part Codes)
+CD4017BCN: CD4017BCN (Main Counter IC)
 
-Manufacturing: I finalized the design files and sent them directly to JLCPCB for physical fabrication.
+C46749: 555 Timer IC
 
-Process Pictures
-<img width="844" height="593" alt="Screen Shot 2026-04-18 at 16 44 00" src="https://github.com/user-attachments/assets/dd2665b0-0358-43bb-9ea0-890422db921a" />
+C492401: Power Header
+
+C81276: Debug Header
+
+C62934: Electrolytic Capacitor
+
+C249157: Ceramic Capacitor
+
+C713997: 1k ohm Resistor
+
+C58592: 470 ohm Resistor
+
+C118912: Potentiometer (Speed Control)
+
+C2895480: Normal LED (Quantity: 10)
+
+Project Media
+Schematic: <img width="727" height="505" alt="soft" src="https://github.com/user-attachments/assets/887b5271-18eb-4724-bf07-2edf5f8ae818" />
 
 
-Bill of Materials (Parts List)
-
-1x NE555P Timer IC
-
-1x CD4017BCN Decade Counter IC
-
-10x Standard Through-Hole LEDs
-
-1x 1k Ohm Resistor
-
-1x 470 Ohm Resistor
-
-1x 50k Ohm Potentiometer (to dial in the speed of the LEDs)
-
-1x 1uF Electrolytic Capacitor
-
-1x 10nF Ceramic Capacitor
-
-Standard Male Header Pins (for Power, Ground, and a Clock debug pin)
-
-1x Custom Batman Printed Circuit Board
+PCB Layout: <img width="847" height="592" alt="hard" src="https://github.com/user-attachments/assets/3aeb9c32-a956-45d8-9448-59033123becd" />
